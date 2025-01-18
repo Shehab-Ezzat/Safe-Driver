@@ -1,0 +1,46 @@
+<div class="flex justify-center items-center w-full h-screen bg-cover bg-center" style="background-image:url(/safe-driver/assets/login-bg.jpg);">
+    <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg">
+      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="space-y-6">
+        <div class="form-group">
+          <label for="email" class="block text-lg font-medium">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            email
+            #email="ngModel"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <div *ngIf="email.invalid && email.touched" class="text-red-500 text-sm mt-2">
+            <span *ngIf="email.errors?.['required']">Email is required.</span>
+            <span *ngIf="email.errors?.['email']">Please enter a valid email.</span>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="password" class="block text-lg font-medium">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            minlength="8"
+            #password="ngModel"
+            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          />
+          <div *ngIf="password.invalid && password.touched" class="text-red-500 text-sm mt-2">
+            <span *ngIf="password.errors?.['required']">Password is required.</span>
+            <span *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</span>
+          </div>
+        </div>
+  
+        <button type="submit" [disabled]="authForm.invalid" class="w-full py-2 bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 disabled:bg-gray-400">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+  
