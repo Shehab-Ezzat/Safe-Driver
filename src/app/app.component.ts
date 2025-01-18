@@ -10,5 +10,4 @@ import { AuthComponent } from './auth/auth.component';
 })
 export class AppComponent {
   title = 'safe-driver';
-
 }
