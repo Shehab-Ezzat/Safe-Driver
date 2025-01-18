@@ -1,46 +1,62 @@
-<div class="flex justify-center items-center w-full h-screen bg-cover bg-center" style="background-image:url(/safe-driver/assets/login-bg.jpg);">
-    <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg">
-      <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="space-y-6">
-        <div class="form-group">
-          <label for="email" class="block text-lg font-medium">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            [(ngModel)]="email"
-            required
-            email
-            #email="ngModel"
-            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-          <div *ngIf="email.invalid && email.touched" class="text-red-500 text-sm mt-2">
-            <span *ngIf="email.errors?.['required']">Email is required.</span>
-            <span *ngIf="email.errors?.['email']">Please enter a valid email.</span>
-          </div>
+<div class="login bg-cover bg-center" style="background-image: url(assets/images/login-bg.jpg);">
+  <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg sm:max-w-md md:max-w-lg lg:max-w-xl h-auto sm:h-auto md:h-4/6">
+    <div class="mb-10">
+      <h1 class="text-primary flex justify-center text-center text-3xl sm:text-4xl md:text-5xl font-black mb-4">SafeDriver</h1>
+      <p class="flex justify-center text-center text-sm sm:text-base md:text-lg">Welcome to Safe Driver, login now!</p>
+    </div>
+    
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" class="space-y-6">
+      <div class="form-group text-center">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          (ngModel)="email"
+          required
+          email
+          #email="ngModel"
+          placeholder="Email*"
+          class="w-4/5 sm:w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+        />
+        <div *ngIf="email.invalid && email.touched" class="text-red-500 text-sm mt-2">
+          <span *ngIf="email.errors?.['required']">Email is required.</span>
+          <span *ngIf="email.errors?.['email']">Please enter a valid email.</span>
         </div>
+      </div>
   
-        <div class="form-group">
-          <label for="password" class="block text-lg font-medium">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            [(ngModel)]="password"
-            required
-            minlength="8"
-            #password="ngModel"
-            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-          <div *ngIf="password.invalid && password.touched" class="text-red-500 text-sm mt-2">
-            <span *ngIf="password.errors?.['required']">Password is required.</span>
-            <span *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</span>
-          </div>
+      <div class="form-group text-center">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          (ngModel)="password"
+          required
+          minlength="8"
+          #password="ngModel"
+          placeholder="Password*"
+          class="w-4/5 sm:w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+        />
+        <div *ngIf="password.invalid && password.touched" class="text-red-500 text-sm mt-2">
+          <span *ngIf="password.errors?.['required']">Password is required.</span>
+          <span *ngIf="password.errors?.['minlength']">Password must be at least 8 characters.</span>
         </div>
+      </div>
   
-        <button type="submit" [disabled]="authForm.invalid" class="w-full py-2 bg-green-500 text-white font-medium rounded-lg hover:bg-green-600 disabled:bg-gray-400">
+      <div class="flex justify-center">
+        <button
+          type="submit"
+          [disabled]="authForm.invalid"
+          class="w-full max-w-xs py-2 bg-green-500 text-white font-medium rounded-3xl hover:bg-green-600"
+        >
           Login
         </button>
-      </form>
-    </div>
+      </div>
+
+      <div class="flex justify-center">
+        <h1 class="text-sm sm:text-base">
+          New to Safe Driver? <a class="text-primary">Register</a>
+        </h1>
+      </div>
+    </form>
   </div>
-  
+</div>

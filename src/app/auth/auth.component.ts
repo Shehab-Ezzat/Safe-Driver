@@ -1,21 +1,22 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormsModule, NgForm } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import {  FormsModule, NgForm } from '@angular/forms';
+import {   NgIf } from '@angular/common';
+import { AuthLoginService } from '../services/auth-login.service';
+
 
 
 @Component({
   selector: 'app-auth',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports:[FormsModule,NgIf],
   templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+  styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private http: HttpClient) {}
+  private login = inject(AuthLoginService);
 
   onSubmit(authForm: NgForm) {
     if (authForm.invalid) {
@@ -26,15 +27,15 @@ export class AuthComponent {
       email: this.email,
       password: this.password
     };
-
-    this.http.post('https://safedriver-be.onrender.com/api/auth/login', loginData)
-      .subscribe(
-        (response) => {
-          console.log('Login success:', response);
-        },
-        (error) => {
-          console.error('Login failed:', error);
-        }
-      );
+    
+    this.login.login(loginData).subscribe({
+      next:(response) => {
+        console.log('Login success:', response);
+      },
+      error:(error) => {
+        console.error('Login failed:', error);
+      }
+    });
   }
+
 }
