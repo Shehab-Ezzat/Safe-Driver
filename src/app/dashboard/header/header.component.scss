@@ -1,0 +1,31 @@
+.main{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3em;
+    background-color: #04A94F;
+    height:3rem;
+    align-items: center;
+    color: white;
+
+    div{
+        display: flex;
+
+        div{
+            margin-right: 2rem;
+            i{
+                margin: auto .5rem;
+                color: white;
+            }
+        }
+    }
+}
+@media (max-width: 800px) {
+    .main {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 400px) {
+    .group {
+      flex-direction: column;
+    }
+  }
