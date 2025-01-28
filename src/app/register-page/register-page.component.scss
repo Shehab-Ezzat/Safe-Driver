@@ -1,0 +1,6 @@
+.login{
+    @apply flex justify-center items-center w-full h-screen bg-cover bg-center;
+}
+.wrapper{
+   @apply bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg sm:max-w-md md:max-w-lg lg:max-w-xl h-auto sm:h-auto;
+}

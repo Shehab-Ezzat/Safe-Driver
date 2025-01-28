@@ -1,5 +1,5 @@
-<div class="login bg-cover bg-center" style="background-image: url(assets/images/login-bg.jpg);">
-  <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg sm:max-w-md md:max-w-lg lg:max-w-xl h-auto sm:h-auto md:h-4/6">
+<div class="login" style="background-image: url(assets/images/login-bg.jpg);">
+  <div class="wrapper">
     <div class="mb-10">
       <h1 class="text-primary flex justify-center text-center text-3xl sm:text-4xl md:text-5xl font-black mb-4">SafeDriver</h1>
       <p class="flex justify-center text-center text-sm sm:text-base md:text-lg">Welcome to Safe Driver, login now!</p>
@@ -54,7 +54,7 @@
 
       <div class="flex justify-center">
         <h1 class="text-sm sm:text-base">
-          New to Safe Driver? <a class="text-primary">Register</a>
+          New to Safe Driver? <a class="text-primary" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
         </h1>
       </div>
     </form>
